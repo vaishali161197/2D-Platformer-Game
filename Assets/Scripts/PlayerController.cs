@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {   
@@ -17,6 +19,18 @@ public class PlayerController : MonoBehaviour
         rb2d = gameObject.GetComponent<Rigidbody2D>();
         collider = gameObject.GetComponent<BoxCollider2D>();
     }
+    public void KillPlayer()
+    {
+        Debug.Log("player is killed by enemy");
+        //Destroy(gameObject);
+        //reload the game
+        ReloadLevel();
+    }
+    public void ReloadLevel()
+    {
+        SceneManager.LoadScene(0);
+    }
+
     public void PickUpKey()
     {
         Debug.Log("PlayerPickedUpKey");

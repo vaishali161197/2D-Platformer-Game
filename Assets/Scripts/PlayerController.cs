@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {   
     public Animator animator;
+    public ScoreController score;
     public float speed;
     public BoxCollider2D collider;
     public float Jump;
@@ -15,6 +16,11 @@ public class PlayerController : MonoBehaviour
     {
         rb2d = gameObject.GetComponent<Rigidbody2D>();
         collider = gameObject.GetComponent<BoxCollider2D>();
+    }
+    public void PickUpKey()
+    {
+        Debug.Log("PlayerPickedUpKey");
+        score.IncreaseScore(10);
     }
 
     void Start()

@@ -3,7 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyController : MonoBehaviour
+
 {
+    public float speed;
+    private float isscale=1;
     // Start is called before the first frame update
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -14,7 +17,26 @@ public class EnemyController : MonoBehaviour
             // Destroy(gameObject);
 
         }
+        if (collision.gameObject.CompareTag("colliderforenemy"))
+        {
+            Vector3 scale = transform.localScale;
+            scale.x = -1 * scale.x;
+            transform.localScale = scale;
+            isscale = scale.x;
+        }
 
     }
-}
+    //move enemy
+    private void MoveEnemy()
+    {
+        //code for moving character
+        Vector3 position = transform.position;
+        position.x += isscale*speed * Time.deltaTime;
+        transform.position = position;
 
+    }
+    private void Update()
+    {
+        MoveEnemy();
+    }
+}

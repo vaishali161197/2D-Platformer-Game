@@ -13,6 +13,7 @@ public class PlayerController : MonoBehaviour
     public float Jump;
     public bool isCrouch;
     private Rigidbody2D rb2d;
+    public GameOverConntroller gameOverConntroller;
     // Start is called before the first frame update
     private void Awake()
     {
@@ -24,11 +25,13 @@ public class PlayerController : MonoBehaviour
         Debug.Log("player is killed by enemy");
         //Destroy(gameObject);
         //reload the game
-        ReloadLevel();
+        // ReloadLevel();
+        gameOverConntroller.PlayerDied();
+        this.enabled = false;
     }
     public void ReloadLevel()
     {
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(1);
     }
 
     public void PickUpKey()

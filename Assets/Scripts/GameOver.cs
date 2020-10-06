@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class GameOver : MonoBehaviour
 {
     public string newscene;
+    public GameOverConntroller gameOverConntroller;
     // Start is called before the first frame update
     //void Start()
     //{
@@ -23,7 +24,7 @@ public class GameOver : MonoBehaviour
         if (collision.gameObject.GetComponent<PlayerController>())
         {
             Debug.Log(" GAMEOVER");
-            SceneManager.LoadScene(newscene);
+            gameOverConntroller.PlayerDied();
         }
 
     }

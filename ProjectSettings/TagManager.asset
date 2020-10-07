@@ -5,6 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - colliderforenemy
+  - 1
+  - 2
+  - 3
   layers:
   - Default
   - TransparentFX
